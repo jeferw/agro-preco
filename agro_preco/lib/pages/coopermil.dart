@@ -1,24 +1,23 @@
 import 'package:agro_preco/model/precos.dart';
 import 'package:flutter/material.dart';
 
-import 'package:agro_preco/get-precos/getPrecosAgrosol.dart';
-
+import 'package:agro_preco/get-precos/getPrecosCoopermil.dart';
 import 'list-precos/listPrecos.dart';
 
-class PrecosAgrosol extends StatefulWidget {
+class PrecosCoopermil extends StatefulWidget {
   @override
-  _PrecosAgrosolState createState() => _PrecosAgrosolState();
+  _PrecosCoopermilState createState() => _PrecosCoopermilState();
 }
 
-class _PrecosAgrosolState extends State<PrecosAgrosol> {
+class _PrecosCoopermilState extends State<PrecosCoopermil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Preços Agrosol'),
+        title: Text('Preços Coopermil'),
       ),
       body: FutureBuilder<List<Preco>>(
-        future: GetPrecosAgrosol().requestProdutos(),
+        future: GetPrecosCoopermil().requestProdutos(),
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
 

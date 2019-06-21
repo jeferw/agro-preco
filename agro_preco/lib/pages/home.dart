@@ -1,45 +1,66 @@
 import 'package:flutter/material.dart';
 
 import 'agrosol.dart';
+import 'coopermil.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key}) : super(key: key);
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Agro Preços'),
       ),
-      body: Container(
-        child: Row(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                RaisedButton(
-                  child: Text('Preços Agrosol'),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.only(top: 30, left: 5, right: 5),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              ButtonTheme(
+                minWidth: double.infinity,
+                child: RaisedButton(
+                  child: Text(
+                    'Preços Agrosol',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PrecosAgrosol()),
+                      MaterialPageRoute(
+                        builder: (context) => PrecosAgrosol(),
+                      ),
                     );
                   },
                 ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                RaisedButton(
-                  child: Text('Preços Coopermil'),
+              ),
+              ButtonTheme(
+                minWidth: double.infinity,
+                child: RaisedButton(
+                  child: Text(
+                    'Preços Coopermil',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                   onPressed: () {
-                    /**/
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PrecosCoopermil(),
+                      ),
+                    );
                   },
-                )
-              ],
-            ),
-          ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

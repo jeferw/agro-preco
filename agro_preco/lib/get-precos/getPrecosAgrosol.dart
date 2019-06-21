@@ -5,21 +5,15 @@ import 'package:http/http.dart' as http;
 import 'package:html/dom.dart' as html;
 import 'package:agro_preco/model/precos.dart';
 
-//import 'package:agro_preco/get-precos/interfaceGetPrecos.dart';
-
 class GetPrecosAgrosol {
-  String URL;
-
-  GetPrecosAgrosol(this.URL);
-
   Future<List<Preco>> requestProdutos() async {
-    final response = await http.get(this.URL);
+    final response =
+        await http.get('http://www.agrosolagricola.com.br/cotacoes');
 
-    //return compute(parseProdutos, response.body);
-    return parseProdutos(response.body);
+    return compute(parseProdutos, response.body);
   }
 
-  List<Preco> parseProdutos(String responseBody) {
+  static List<Preco> parseProdutos(String responseBody) {
     var document = parse(responseBody);
     html.Element tabela = document.getElementById('dataTable');
 
@@ -35,7 +29,7 @@ class GetPrecosAgrosol {
     //return linhas.map<Preco>((linha) => getPreco(linha)).toList();
   }
 
-  Preco getPreco(html.Element linha) {
+  static Preco getPreco(html.Element linha) {
     List<html.Element> colunas = linha.querySelectorAll('td');
 
     Map<String, dynamic> json = new Map<String, dynamic>();
