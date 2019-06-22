@@ -1,4 +1,4 @@
-package com.example.agro_preco;
+package com.jrw.agro_preco;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

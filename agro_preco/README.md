@@ -1,6 +1,6 @@
 # agro_preco
 
-A new Flutter project.
+Aplicativo para buscar, nas agropecuárias locais, o preço online dos produtos agrícolas.
 
 ## Getting Started
 
